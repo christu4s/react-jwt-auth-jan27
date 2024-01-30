@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import {createTodos} from './utilities';
+import TodoList from "./TodoList";
+import Product from "./Product";
+import './App.css'
+const todos = createTodos();
 function App() {
+  const [tab, setTab] = useState("all");
+  const [isDark, setIsDark] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <input type="checkbox" checked={isDark} onChange={(event)=>setIsDark(event.target.checked)}/>
+      <Product refferalId="refrfshfd97" productId={123} theme={isDark?'dark':'light'}/>
+      <br></br>
+      ==========================
+
+      <br></br>
+      <button onClick={()=>setTab('active')}>active</button>
+      <button onClick={()=>setTab('completed')}>completed</button>
+      <button onClick={()=>setTab('all')}>all</button>
+      <input type="checkbox" checked={isDark} onChange={(event)=>setIsDark(event.target.checked)}/>
+      <TodoList todos={todos} tab={tab} theme={isDark?'dark':'light'}/>
+
+      
     </div>
   );
 }
