@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.higherOrder {
+  background-color: #61dafb;
+  color: #282c34;
+  border: 1px solid gray;
+  padding: 20px;
+  width: 200px;
+  height:200px
+}
